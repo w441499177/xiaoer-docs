@@ -28,6 +28,7 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
       
+      # 直接上传静态文件，不使用 Jekyll 构建
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
