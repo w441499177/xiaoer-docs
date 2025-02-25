@@ -645,5 +645,58 @@
     <!-- 代码高亮 -->
     <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-json.min.js"></script>
+    
+    <!-- 移动端侧边栏切换功能 -->
+    <script>
+      // 添加侧边栏切换功能
+      document.addEventListener('DOMContentLoaded', function() {
+        // 创建侧边栏切换按钮
+        var toggleButton = document.createElement('div');
+        toggleButton.className = 'sidebar-toggle';
+        toggleButton.innerHTML = '<span></span>';
+        document.body.appendChild(toggleButton);
+        
+        // 创建遮罩层
+        var mask = document.createElement('div');
+        mask.className = 'sidebar-mask';
+        document.body.appendChild(mask);
+        
+        // 切换侧边栏
+        function toggleSidebar() {
+          document.body.classList.toggle('close');
+        }
+        
+        // 点击按钮切换侧边栏
+        toggleButton.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          toggleSidebar();
+        });
+        
+        // 点击遮罩层关闭侧边栏
+        mask.addEventListener('click', function() {
+          if (document.body.classList.contains('close')) {
+            toggleSidebar();
+          }
+        });
+        
+        // 检测屏幕宽度变化
+        window.addEventListener('resize', function() {
+          if (window.innerWidth > 768 && document.body.classList.contains('close')) {
+            document.body.classList.remove('close');
+          }
+        });
+        
+        // 点击侧边栏链接后自动关闭侧边栏（在移动端）
+        var sidebarLinks = document.querySelectorAll('.sidebar-nav a');
+        sidebarLinks.forEach(function(link) {
+          link.addEventListener('click', function() {
+            if (window.innerWidth <= 768 && document.body.classList.contains('close')) {
+              toggleSidebar();
+            }
+          });
+        });
+      });
+    </script>
   </body>
 </html>
