@@ -131,6 +131,7 @@ body {
   height: auto !important;
   opacity: 1 !important;
   overflow: visible !important;
+  display: block !important;
 }
 
 .sidebar-nav ul ul a {
@@ -200,9 +201,22 @@ body {
   text-decoration: none;
 }
 
-.sidebar ul li.active > a {
-  color: var(--theme-color);
-  font-weight: 600;
+/* 修复侧边栏折叠插件样式 */
+.docsify-sidebar-collapse .sidebar-nav .sidebar-nav-item {
+  position: relative;
+}
+
+.docsify-sidebar-collapse .sidebar-nav .sidebar-nav-item > ul {
+  display: block !important;
+}
+
+.docsify-sidebar-collapse .sidebar-nav .sidebar-nav-item.collapse > ul {
+  display: block !important;
+}
+
+/* 修复侧边栏折叠图标 */
+.docsify-sidebar-collapse .sidebar-nav .sidebar-nav-item.collapse .sidebar-nav-item-icon {
+  transform: rotate(90deg);
 }
 
 /* 内容区域样式 */
