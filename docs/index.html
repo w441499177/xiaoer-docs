@@ -598,6 +598,13 @@
           noData: "未找到结果",
           depth: 6
         },
+        // 添加侧边栏折叠插件配置
+        sidebarCollapsePlugin: {
+          showFirstLevel: true, // 默认展开第一级
+          uniqueOpened: true, // 一次只展开一个菜单
+          collapsable: true, // 允许折叠
+          autoCloseOthers: true // 自动关闭其他菜单
+        },
         plugins: [
           function(hook) {
             var footer = [
