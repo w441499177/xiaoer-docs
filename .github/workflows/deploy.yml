@@ -11,10 +11,6 @@ permissions:
   pages: write
   id-token: write
 
-# 禁用 Jekyll
-env:
-  JEKYLL_ENV: 'none'
-
 concurrency:
   group: "pages"
   cancel-in-progress: false
@@ -31,14 +27,12 @@ jobs:
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
-        with:
-          enablement: false  # 禁用 Jekyll 处理
       
       # 直接上传静态文件，不使用 Jekyll 构建
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: './docs'
       
       - name: Deploy to GitHub Pages
         id: deployment

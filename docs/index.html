@@ -1,0 +1,631 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>小二平台-AI驱动的产品投研平台</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="小二产品研究平台使用手册-为专业投资者提供全面的数据分析和市场跟踪工具" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
+    />
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css"
+    />
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/style.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- 添加 Fira Code 字体，用于代码显示 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css">
+    <!-- 添加动画库 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap&display=swap&text=小二产品研究平台" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap&text=0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz" rel="stylesheet">
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <style>
+      :root {
+        /* 主色系 */
+        --theme-color: #0b2167;
+        --theme-color-dark: #091544;
+        --theme-color-light: #1a73e8;
+        --theme-color-lighter: #e8f1f5;
+        
+        /* 文字颜色 */
+        --text-color-base: #2c3e50;
+        --text-color-secondary: #646473;
+        --text-color-tertiary: #81818e;
+        
+        /* 字体系统 */
+        --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        --code-font-family: 'JetBrains Mono', Consolas, Monaco, 'Andale Mono', monospace;
+        
+        /* 背景色 */
+        --bg-color: #ffffff;
+        --sidebar-bg-color: #f8f9fa;
+        --sidebar-border-color: #eaecef;
+        
+        /* 卡片阴影 */
+        --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        --card-shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
+        
+        /* 动画时间 */
+        --transition-normal: 0.3s ease;
+        --transition-fast: 0.15s ease;
+      }
+
+      body {
+        font-family: var(--font-family);
+        background: var(--bg-color);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      /* 粒子效果容器 */
+      #particles-js {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        opacity: 0.6;
+        pointer-events: none;
+      }
+
+      /* Logo 样式 */
+      .app-name-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+      }
+
+      .app-name-link img {
+        height: 40px;
+        width: auto;
+      }
+
+      /* 封面样式 */
+      section.cover {
+        background: linear-gradient(135deg, 
+          rgba(11, 33, 103, 0.95),
+          rgba(26, 115, 232, 0.95)) !important;
+        color: white;
+        position: relative;
+        overflow: hidden;
+      }
+
+      section.cover::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="20" fill="none"/><circle cx="10" cy="10" r="1" fill="%23ffffff" opacity="0.2"/></svg>') repeat;
+        opacity: 0.1;
+        animation: backgroundMove 20s linear infinite;
+      }
+
+      @keyframes backgroundMove {
+        from { background-position: 0 0; }
+        to { background-position: 100px 100px; }
+      }
+
+      section.cover .cover-main {
+        position: relative;
+        z-index: 1;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      section.cover .cover-main img {
+        max-width: 200px;
+        margin: 2rem auto;
+        filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+        100% { transform: translateY(0px); }
+      }
+
+      section.cover .cover-main > h1 {
+        font-size: 3.5rem;
+        font-weight: 700;
+        color: white;
+        margin: 1rem 0;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        animation: fadeInDown 1s ease-out;
+      }
+
+      section.cover .cover-main > h1 small {
+        font-size: 1.5rem;
+        margin-left: 0.5rem;
+        opacity: 0.8;
+        font-weight: 400;
+      }
+
+      section.cover .cover-main > p {
+        font-size: 1.5rem;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.9);
+        margin: 2rem 0;
+        animation: fadeInUp 1s ease-out 0.5s both;
+      }
+
+      section.cover .cover-main > p:last-child a {
+        border-radius: 30px;
+        box-sizing: border-box;
+        color: white;
+        display: inline-block;
+        font-size: 1.05rem;
+        letter-spacing: 0.1em;
+        margin: 0.5rem 1rem;
+        padding: 0.75em 2em;
+        text-decoration: none;
+        transition: all var(--transition-normal);
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        animation: fadeInUp 1s ease-out 1s both;
+      }
+
+      section.cover .cover-main > p:last-child a:first-child {
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      section.cover .cover-main > p:last-child a:last-child {
+        background: transparent;
+      }
+
+      section.cover .cover-main > p:last-child a:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      /* 导航栏样式 */
+      .app-nav {
+        position: fixed;
+        margin: 0;
+        padding: 1rem 2rem;
+        width: 100%;
+        height: 60px;
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: saturate(180%) blur(10px);
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+      }
+
+      .app-nav > ul {
+        display: none;
+      }
+
+      .app-nav a {
+        color: var(--text-color-base);
+        font-size: 0.95rem;
+        padding: 0.5rem 0.75rem;
+        margin: 0 0.25rem;
+        border-radius: 4px;
+        transition: all 0.15s ease;
+      }
+
+      .app-nav a:hover {
+        background: rgba(0,0,0,0.05);
+        color: var(--theme-color);
+      }
+
+      /* 侧边栏样式 */
+      .sidebar {
+        background: var(--sidebar-bg-color);
+        border-right: 1px solid var(--sidebar-border-color);
+        padding-top: 60px;
+      }
+
+      .sidebar > h1 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin: 2rem 1rem 1rem;
+      }
+
+      .sidebar ul li {
+        margin: 0;
+      }
+
+      .sidebar ul li p {
+        margin: 0;
+      }
+
+      .sidebar ul {
+        margin: 0;
+        padding: 0;
+      }
+
+      .sidebar ul li a {
+        font-size: 0.95rem;
+        color: var(--text-color-base);
+        transition: all var(--transition-fast);
+        padding: 0.5rem 1rem;
+        margin: 0.2rem 0;
+        border-radius: 4px;
+      }
+
+      .sidebar-nav > ul > li > a {
+        font-weight: 500;
+      }
+
+      .sidebar ul li.active > a {
+        color: var(--theme-color);
+        background: rgba(11, 33, 103, 0.05);
+        font-weight: 500;
+      }
+
+      .sidebar ul li a:hover {
+        background: rgba(11, 33, 103, 0.03);
+      }
+
+      .sidebar .app-name {
+        padding: 0.5rem 0;
+      }
+
+      .sidebar .app-name-link {
+        padding: 0.5rem;
+      }
+
+      /* 主内容区样式 */
+      .content {
+        padding-top: 60px;
+      }
+
+      .markdown-section {
+        max-width: 950px;
+        padding: 2rem 45px;
+      }
+
+      .markdown-section h1,
+      .markdown-section h2 {
+        font-weight: 600;
+        color: var(--theme-color);
+      }
+
+      .markdown-section h3,
+      .markdown-section h4 {
+        font-weight: 500;
+        color: var(--text-color-base);
+      }
+
+      .markdown-section p {
+        line-height: 1.7;
+        color: #3c4858;
+      }
+
+      .markdown-section code {
+        font-family: var(--code-font-family);
+        border-radius: 4px;
+      }
+
+      .markdown-section pre {
+        background: #1a1a1a;
+        border-radius: 8px;
+      }
+
+      .markdown-section pre > code {
+        font-family: var(--code-font-family);
+      }
+
+      /* 卡片样式 */
+      .markdown-section .card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .markdown-section .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+      }
+
+      /* 按钮样式 */
+      .markdown-section .button {
+        display: inline-block;
+        padding: 0.8rem 1.6rem;
+        background: var(--theme-color);
+        color: white;
+        border-radius: 30px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+      }
+
+      .markdown-section .button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(11, 33, 103, 0.2);
+      }
+
+      /* 提示框样式 */
+      .markdown-section .tip {
+        background: rgba(11, 33, 103, 0.05);
+        border-left: 4px solid var(--theme-color);
+        padding: 1.2rem;
+        margin: 1.5rem 0;
+        border-radius: 0 8px 8px 0;
+      }
+
+      /* 警告框样式 */
+      .markdown-section .warning {
+        background: #fff8e6;
+        border-left: 4px solid #f7b84b;
+        padding: 1.2rem;
+        margin: 1.5rem 0;
+        border-radius: 0 8px 8px 0;
+      }
+
+      /* 移动端适配 */
+      @media screen and (max-width: 768px) {
+        section.cover .cover-main > h1 {
+          font-size: 2.5rem;
+        }
+
+        section.cover .cover-main > p {
+          font-size: 1.2rem;
+        }
+
+        .markdown-section {
+          padding: 1.5rem;
+        }
+        
+        .sidebar {
+          transform: translateX(-100%);
+          transition: transform var(--transition-normal);
+        }
+        
+        .sidebar.open {
+          transform: translateX(0);
+        }
+      }
+
+      @media screen and (max-width: 480px) {
+        section.cover .cover-main > h1 {
+          font-size: 2rem;
+        }
+
+        section.cover .cover-main > p {
+          font-size: 1rem;
+        }
+      }
+
+      /* 自定义滚动条 */
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 3px;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #ccc;
+        border-radius: 3px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: #999;
+      }
+
+      /* 页脚样式 */
+      .footer {
+        text-align: center;
+        padding: 1rem;
+        border-top: 1px solid #eee;
+        color: #666;
+        font-size: 0.9rem;
+      }
+
+      /* 向下滚动箭头样式 */
+      .scroll-arrow {
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        cursor: pointer;
+        animation: bounce 2s infinite;
+        z-index: 2;
+        opacity: 0.6;
+      }
+
+      .scroll-arrow svg {
+        width: 32px;
+        height: 32px;
+        fill: #0b2167;
+        filter: none;
+      }
+
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateY(0) translateX(-50%);
+        }
+
+        40% {
+          transform: translateY(-10px) translateX(-50%);
+        }
+
+        60% {
+          transform: translateY(-5px) translateX(-50%);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="particles-js"></div>
+    <div id="app"></div>
+    <script>
+      // Particles.js 配置
+      particlesJS.load('particles-js', {
+        "particles": {
+          "number": {
+            "value": 80,
+            "density": {
+              "enable": true,
+              "value_area": 800
+            }
+          },
+          "color": {
+            "value": "#0b2167"
+          },
+          "shape": {
+            "type": "circle"
+          },
+          "opacity": {
+            "value": 0.5,
+            "random": false,
+            "anim": {
+              "enable": true,
+              "speed": 1,
+              "opacity_min": 0.1,
+              "sync": false
+            }
+          },
+          "size": {
+            "value": 3,
+            "random": true,
+            "anim": {
+              "enable": true,
+              "speed": 2,
+              "size_min": 0.1,
+              "sync": false
+            }
+          },
+          "line_linked": {
+            "enable": true,
+            "distance": 150,
+            "color": "#0b2167",
+            "opacity": 0.4,
+            "width": 1
+          },
+          "move": {
+            "enable": true,
+            "speed": 2,
+            "direction": "none",
+            "random": false,
+            "straight": false,
+            "out_mode": "out",
+            "bounce": false,
+            "attract": {
+              "enable": true,
+              "rotateX": 600,
+              "rotateY": 1200
+            }
+          }
+        },
+        "interactivity": {
+          "detect_on": "canvas",
+          "events": {
+            "onhover": {
+              "enable": true,
+              "mode": "grab"
+            },
+            "onclick": {
+              "enable": true,
+              "mode": "push"
+            },
+            "resize": true
+          },
+          "modes": {
+            "grab": {
+              "distance": 140,
+              "line_linked": {
+                "opacity": 1
+              }
+            },
+            "push": {
+              "particles_nb": 4
+            }
+          }
+        },
+        "retina_detect": true
+      });
+
+      window.$docsify = {
+        name: '小二产品研究平台',
+        nameLink: '/',
+        logo: './assets/images/logo.png',
+        loadSidebar: true,
+        loadNavbar: false,
+        subMaxLevel: 0,
+        auto2top: true,
+        coverpage: false,
+        homepage: 'README.md',
+        basePath: '/',
+        routerMode: 'hash',
+        hideSidebar: false,
+        alias: {
+          '/.*/_sidebar.md': '/_sidebar.md'
+        },
+        search: {
+          maxAge: 86400000,
+          paths: "auto",
+          placeholder: "搜索文档",
+          noData: "未找到结果",
+          depth: 6
+        },
+        plugins: [
+          function(hook) {
+            var footer = [
+              '<hr/>',
+              '<footer>',
+              '<span>Copyright © 2024 <a href="https://www.xiaoerdata.site">小二产品研究平台</a>. All rights reserved.</span>',
+              '<span>本文档受知识产权保护，未经授权禁止转载或使用</span>',
+              '</footer>'
+            ].join('');
+
+            hook.afterEach(function(html) {
+              return html + footer;
+            });
+          }
+        ]
+      };
+    </script>
+    <!-- Docsify v4 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+    <!-- 搜索插件 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+    <!-- 代码复制插件 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+    <!-- 图片缩放插件 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+    <!-- 字数统计插件 -->
+    <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
+    <!-- 分页导航插件 -->
+    <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
+    <!-- 暗黑模式插件 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/index.min.js"></script>
+    <!-- 代码高亮 -->
+    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-json.min.js"></script>
+  </body>
+</html>
