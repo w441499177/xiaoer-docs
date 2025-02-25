@@ -26,7 +26,7 @@
 ### 登录方式
 
 - 登录地址：https://www.xiaoerdata.site/#/login-page
-- 使用注册邮箱和密码登录
+- 使用注册人姓名和注册设置的密码登录
 - 建议使用Edge或Chrome浏览器访问
 
 ## 功能模块

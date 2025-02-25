@@ -2,9 +2,9 @@
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
-    <title>小二平台说明文档</title>
+    <title>小二产品研究平台 - 专业投资者的智能决策助手</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="description" content="小二产品研究平台使用文档" />
+    <meta name="description" content="小二产品研究平台使用手册 - 为专业投资者提供全面的数据分析和市场跟踪工具" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
@@ -17,6 +17,11 @@
       rel="stylesheet"
       href="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/style.min.css"
     />
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- 添加 Fira Code 字体，用于代码显示 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css">
+    <!-- 添加动画库 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css">
     <style>
       :root {
         --theme-color: #0b2167;
@@ -236,10 +241,10 @@
         coverpage: true,
         onlyCover: false,
         search: {
-          maxAge: 86400000,;
-          paths: "auto",;
-          placeholder: "搜索文档",;
-          noData: "未找到结果",;
+          maxAge: 86400000,
+          paths: "auto",
+          placeholder: "搜索文档",
+          noData: "未找到结果",
           depth: 6
         },
         count: {
@@ -251,23 +256,28 @@
           color: "rgb(90,90,90)",
           language: "chinese",
           localization: {
-            words: "",;
+            words: "",
             minute: ""
           },
-          isExpected: trueisExpectedisExpected
+          isExpected: true
         },
         pagination: {
-          previousText: "上一章节",;
-          nextText: "下一章节",;
-          crossChapter: true,;
+          previousText: "上一章节",
+          nextText: "下一章节",
+          crossChapter: true,
           crossChapterText: true
+        },
+        copyCode: {
+          buttonText: '复制代码',
+          errorText: '复制失败',
+          successText: '已复制'
         },
         plugins: [
           function (hook) {
             var footer = [
               "<hr/>",
               '<footer class="footer">',
-              "<span>Copyright &copy; 2024 小二产品研究平台</span>",
+              "<span>Copyright &copy; 2024 小二产品研究平台. All Rights Reserved.</span>",
               "</footer>"
             ].join("");
 
@@ -291,7 +301,7 @@
               }
             });
           }
-        ]pluginsplugins
+        ]
       };
     </script>
     <!-- Docsify v4 -->
