@@ -170,17 +170,37 @@
       .sidebar {
         background-color: #f8f9fa;
         border-right: 1px solid rgba(0,0,0,0.05);
-        padding-top: 60px;
+        padding-top: 50px;
       }
 
       .sidebar > h1 {
-        padding: 1rem 2rem;
+        padding: 0.8rem 1.5rem;
+        margin: 0;
+      }
+
+      .sidebar ul li {
+        margin: 0;
+      }
+
+      .sidebar ul li p {
+        margin: 0;
+      }
+
+      .sidebar ul {
+        margin: 0;
+        padding: 0;
       }
 
       .sidebar ul li a {
         color: var(--text-color-base);
-        font-size: 0.95rem;
-        padding: 0.5rem 2rem;
+        font-size: 0.9rem;
+        padding: 0.4rem 1.5rem;
+        margin: 0;
+        line-height: 1.5;
+      }
+
+      .sidebar-nav > ul > li > a {
+        font-weight: 500;
       }
 
       .sidebar ul li.active > a {
@@ -189,9 +209,17 @@
         background: rgba(0,0,0,0.03);
       }
 
+      .sidebar .app-name {
+        padding: 0.5rem 0;
+      }
+
+      .sidebar .app-name-link {
+        padding: 0.5rem;
+      }
+
       /* 主内容区样式 */
       .content {
-        padding-top: 60px;
+        padding-top: 50px;
       }
 
       .markdown-section {
