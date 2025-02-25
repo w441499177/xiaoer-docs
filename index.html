@@ -29,6 +29,8 @@
         --text-color-base: #2e2e2e;
         --text-color-secondary: #646473;
         --text-color-tertiary: #81818e;
+        --background-gradient-start: rgba(246, 246, 248, 0.95);
+        --background-gradient-end: rgba(242, 242, 244, 0.97);
       }
 
       /* Logo 样式 */
@@ -46,40 +48,58 @@
 
       /* 封面样式 */
       section.cover {
-        background: linear-gradient(to right bottom, 
-          rgba(240, 242, 245, 0.95), 
-          rgba(230, 235, 240, 0.95)) !important;
-        color: var(--text-color-base);
+        background: linear-gradient(135deg, 
+          var(--background-gradient-start),
+          var(--background-gradient-end)) !important;
+        position: relative;
       }
 
-      section.cover .cover-main img {
-        max-width: 240px;
-        margin: 2rem auto;
-        display: block;
+      section.cover::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="20" fill="none"/><circle cx="10" cy="10" r="1" fill="%23f0f0f2" opacity="0.3"/></svg>') repeat;
+        opacity: 0.4;
+        pointer-events: none;
       }
 
       section.cover .cover-main {
+        position: relative;
+        z-index: 1;
         margin: 0 20px;
       }
 
+      section.cover .cover-main img {
+        max-width: 200px;
+        margin: 2rem auto;
+        display: block;
+        filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.05));
+      }
+
       section.cover .cover-main > h1 {
-        font-size: 3rem;
+        font-size: 2.8rem;
         font-weight: 500;
         color: var(--theme-color);
         margin: 1rem 0;
+        letter-spacing: -0.02em;
       }
 
       section.cover .cover-main > h1 small {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
         margin-left: 0.5rem;
         color: var(--text-color-secondary);
+        font-weight: 400;
       }
 
       section.cover .cover-main > p {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
         font-weight: 300;
         color: var(--text-color-secondary);
         margin: 2rem 0;
+        letter-spacing: 0.01em;
       }
 
       section.cover .cover-main > p:last-child a {
@@ -88,12 +108,13 @@
         box-sizing: border-box;
         color: var(--theme-color);
         display: inline-block;
-        font-size: 1.05rem;
-        letter-spacing: 0.1rem;
+        font-size: 1rem;
+        letter-spacing: 0.05em;
         margin: 0.5rem 1rem;
-        padding: 0.75em 2rem;
+        padding: 0.75em 2.5rem;
         text-decoration: none;
-        transition: all 0.15s ease;
+        transition: all 0.2s ease;
+        font-weight: 500;
       }
 
       section.cover .cover-main > p:last-child a:first-child {
@@ -107,20 +128,20 @@
 
       section.cover .cover-main > p:last-child a:hover {
         transform: translateY(-1px);
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
       }
 
       /* 导航栏样式 */
       .app-nav {
         position: fixed;
         margin: 0;
-        padding: 0.7rem 2rem;
+        padding: 0.6rem 2rem;
         width: 100%;
-        height: 60px;
-        background: rgba(255, 255, 255, 0.8);
-        backdrop-filter: saturate(180%) blur(5px);
-        -webkit-backdrop-filter: saturate(180%) blur(5px);
-        border-bottom: 1px solid rgba(0,0,0,0.05);
+        height: 50px;
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: saturate(180%) blur(10px);
+        -webkit-backdrop-filter: saturate(180%) blur(10px);
+        border-bottom: 1px solid rgba(0,0,0,0.03);
         z-index: 1000;
         display: flex;
         align-items: center;
@@ -252,61 +273,6 @@
         border-top: 1px solid #eee;
         color: #666;
         font-size: 0.9rem;
-      }
-
-      /* 封面样式 */
-      section.cover {
-        background: linear-gradient(
-          to bottom right,
-          #f8f9fa,
-          #e9ecef
-        ) !important;
-        position: relative;
-        overflow: hidden;
-      }
-
-      section.cover::before {
-        display: none;
-      }
-
-      section.cover .cover-main {
-        color: #2c3e50;
-        position: relative;
-        z-index: 1;
-      }
-
-      section.cover .cover-main > h1 {
-        color: #0b2167;
-        font-size: 2.5rem;
-        font-weight: 600;
-        margin: 2rem 0;
-        text-shadow: none;
-        background: #0b2167;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-
-      section.cover .cover-main > p {
-        font-size: 1.25rem;
-        font-weight: 400;
-        margin: 1.5rem 0;
-        color: #4a5568;
-      }
-
-      section.cover .cover-main > p > a {
-        border-radius: 4px;
-        padding: 0.75rem 2rem;
-        font-weight: 500;
-        transition: all 0.2s ease;
-        background: #0b2167;
-        color: white;
-        border: none;
-        box-shadow: none;
-      }
-
-      section.cover .cover-main > p > a:hover {
-        transform: translateY(-1px);
-        opacity: 0.9;
       }
 
       /* 向下滚动箭头样式 */
