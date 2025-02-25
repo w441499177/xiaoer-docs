@@ -32,27 +32,34 @@
       }
 
       /* Logo 样式 */
+      .app-name-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+      }
+
       .app-name-link img {
-        height: 50px;
-        margin: 1rem auto;
-        display: block;
+        height: 40px;
+        width: auto;
       }
 
       /* 封面样式 */
       section.cover {
         background: linear-gradient(to right bottom, 
-          rgba(240, 242, 245, 0.9), 
-          rgba(230, 235, 240, 0.9)) !important;
+          rgba(240, 242, 245, 0.95), 
+          rgba(230, 235, 240, 0.95)) !important;
         color: var(--text-color-base);
+      }
+
+      section.cover .cover-main img {
+        max-width: 240px;
+        margin: 2rem auto;
+        display: block;
       }
 
       section.cover .cover-main {
         margin: 0 20px;
-      }
-
-      section.cover .cover-main img {
-        width: 300px;
-        margin-bottom: 2rem;
       }
 
       section.cover .cover-main > h1 {
@@ -106,14 +113,22 @@
       /* 导航栏样式 */
       .app-nav {
         position: fixed;
-        top: 0;
-        right: 0;
-        z-index: 100;
-        padding: 1rem 2rem;
-        background: rgba(255,255,255,0.9);
-        backdrop-filter: blur(5px);
-        border-bottom: 1px solid rgba(0,0,0,0.05);
+        margin: 0;
+        padding: 0.7rem 2rem;
         width: 100%;
+        height: 60px;
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: saturate(180%) blur(5px);
+        -webkit-backdrop-filter: saturate(180%) blur(5px);
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+      }
+
+      .app-nav > ul {
+        display: none;
       }
 
       .app-nav a {
@@ -134,7 +149,7 @@
       .sidebar {
         background-color: #f8f9fa;
         border-right: 1px solid rgba(0,0,0,0.05);
-        padding: 60px 0 0;
+        padding-top: 60px;
       }
 
       .sidebar > h1 {
@@ -337,15 +352,15 @@
     <div id="app"></div>
     <script>
       window.$docsify = {
-        name: '<img src="assets/images/logo.png" alt="小二产品研究平台">',
-        repo: "",
+        name: '小二产品研究平台',
+        nameLink: '/',
+        logo: './assets/images/logo.png',
         loadSidebar: true,
-        loadNavbar: true,
+        loadNavbar: false,
         subMaxLevel: 3,
         auto2top: true,
         coverpage: true,
         onlyCover: false,
-        logo: 'assets/images/logo.png',
         search: {
           maxAge: 86400000,
           paths: "auto",

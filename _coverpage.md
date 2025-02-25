@@ -1,4 +1,4 @@
-![logo](assets/images/logo.png)
+![logo](./assets/images/logo.png)
 
 # 小二产品研究平台 <small>1.0</small>
 
@@ -8,5 +8,5 @@
 - 智能化的市场洞察
 - 专业的研究工具集
 
-[立即开始](README.md)
+[开始使用](README.md)
 [了解更多](#main)
