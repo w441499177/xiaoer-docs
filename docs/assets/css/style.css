@@ -69,10 +69,63 @@ body {
   margin: 0.4rem 0;
 }
 
-.sidebar ul li a {
+/* 一级菜单样式 */
+.sidebar-nav > ul > li > a {
+  color: var(--theme-color);
+  font-size: 1.05rem;
+  font-weight: 600;
+  padding: 0.6rem 1rem;
+  margin: 0.3rem 0;
+  display: block;
+  border-left: 3px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.sidebar-nav > ul > li > a:hover {
+  background: rgba(11, 33, 103, 0.05);
+  border-left-color: var(--theme-color);
+  text-decoration: none;
+}
+
+/* 二级菜单样式 */
+.sidebar-nav ul ul {
+  padding-left: 0;
+}
+
+.sidebar-nav ul ul a {
   color: var(--text-color-secondary);
   font-size: 0.95rem;
+  font-weight: 400;
+  padding: 0.4rem 1rem 0.4rem 2rem;
+  margin: 0.1rem 0;
+  display: block;
+  border-left: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.sidebar-nav ul ul a:hover {
+  color: var(--theme-color-light);
+  background: rgba(11, 33, 103, 0.03);
+  border-left-color: var(--theme-color-light);
+  text-decoration: none;
+}
+
+/* 激活状态 */
+.sidebar-nav > ul > li.active > a {
+  color: var(--theme-color);
+  background: rgba(11, 33, 103, 0.05);
+  border-left-color: var(--theme-color);
+  font-weight: 600;
+}
+
+.sidebar-nav ul ul li.active > a {
+  color: var(--theme-color);
+  background: rgba(11, 33, 103, 0.03);
+  border-left-color: var(--theme-color-light);
   font-weight: 500;
+}
+
+.sidebar ul li a {
   text-decoration: none;
   transition: color 0.2s ease;
 }
