@@ -1,22 +1,26 @@
-- [首页](/)
+* [平台简介](README.md)
 
-- 快速开始
+* [平台访问](README.md#平台访问)
+  * [注册流程](README.md#注册流程)
+  * [登录方式](README.md#登录方式)
 
-  - [平台访问](guide/access.md)
-  - [用户权限](guide/permissions.md)
+* [功能模块](README.md#功能模块)
+  * [产品浏览](README.md#产品浏览)
+  * [自选跟踪](README.md#自选跟踪)
+  * [市场行情](README.md#市场行情)
+  * [AI助手](README.md#ai助手)
 
-- 功能模块
+* [用户权限](README.md#用户权限)
+  * [普通用户](README.md#普通用户)
+  * [核心用户](README.md#核心用户)
+  * [VIP用户](README.md#vip用户)
 
-  - [产品浏览](features/products.md)
-  - [自选跟踪](features/tracking.md)
-  - [市场信息](features/market.md)
-  - [AI助手](features/ai.md)
+* [使用建议](README.md#使用建议)
+  * [数据安全](README.md#数据安全)
+  * [最佳实践](README.md#最佳实践)
+  * [注意事项](README.md#注意事项)
 
-- 使用指南
+* [联系支持](README.md#联系支持)
 
-  - [数据导出](guide/export.md)
-  - [组合管理](guide/portfolio.md)
-  - [报表生成](guide/reports.md)
-
-- [常见问题](faq.md)
-- [联系我们](contact.md)
+* [更新日志](README.md#更新日志)
+  * [2025年2月更新](README.md#_2025年2月23日)
