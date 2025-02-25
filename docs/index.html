@@ -17,18 +17,18 @@
       rel="stylesheet"
       href="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/style.min.css"
     />
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <!-- 添加 Fira Code 字体，用于代码显示 -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css">
     <!-- 添加动画库 -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap&display=swap&text=小二产品研究平台" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap&text=0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz" rel="stylesheet">
-    <!-- Particles.js -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css">
+    <!-- Google Fonts - 使用CDN加载，避免CORS问题 -->
+    <link rel="preconnect" href="//fonts.googleapis.com">
+    <link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
+    <link href="//fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <!-- 内联Particles.js配置，避免加载外部文件 -->
+    <script src="//cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <style>
       :root {
         /* 主色系 */
@@ -484,108 +484,112 @@
     <div id="particles-js"></div>
     <div id="app"></div>
     <script>
-      // Particles.js 配置
-      particlesJS.load('particles-js', {
-        "particles": {
-          "number": {
-            "value": 80,
-            "density": {
-              "enable": true,
-              "value_area": 800
-            }
-          },
-          "color": {
-            "value": "#0b2167"
-          },
-          "shape": {
-            "type": "circle"
-          },
-          "opacity": {
-            "value": 0.5,
-            "random": false,
-            "anim": {
-              "enable": true,
-              "speed": 1,
-              "opacity_min": 0.1,
-              "sync": false
-            }
-          },
-          "size": {
-            "value": 3,
-            "random": true,
-            "anim": {
-              "enable": true,
-              "speed": 2,
-              "size_min": 0.1,
-              "sync": false
-            }
-          },
-          "line_linked": {
-            "enable": true,
-            "distance": 150,
-            "color": "#0b2167",
-            "opacity": 0.4,
-            "width": 1
-          },
-          "move": {
-            "enable": true,
-            "speed": 2,
-            "direction": "none",
-            "random": false,
-            "straight": false,
-            "out_mode": "out",
-            "bounce": false,
-            "attract": {
-              "enable": true,
-              "rotateX": 600,
-              "rotateY": 1200
-            }
-          }
-        },
-        "interactivity": {
-          "detect_on": "canvas",
-          "events": {
-            "onhover": {
-              "enable": true,
-              "mode": "grab"
-            },
-            "onclick": {
-              "enable": true,
-              "mode": "push"
-            },
-            "resize": true
-          },
-          "modes": {
-            "grab": {
-              "distance": 140,
-              "line_linked": {
-                "opacity": 1
+      // 内联Particles.js配置，避免加载外部文件
+      document.addEventListener("DOMContentLoaded", function() {
+        particlesJS('particles-js', {
+          "particles": {
+            "number": {
+              "value": 80,
+              "density": {
+                "enable": true,
+                "value_area": 800
               }
             },
-            "push": {
-              "particles_nb": 4
+            "color": {
+              "value": "#0b2167"
+            },
+            "shape": {
+              "type": "circle"
+            },
+            "opacity": {
+              "value": 0.5,
+              "random": false,
+              "anim": {
+                "enable": true,
+                "speed": 1,
+                "opacity_min": 0.1,
+                "sync": false
+              }
+            },
+            "size": {
+              "value": 3,
+              "random": true,
+              "anim": {
+                "enable": true,
+                "speed": 2,
+                "size_min": 0.1,
+                "sync": false
+              }
+            },
+            "line_linked": {
+              "enable": true,
+              "distance": 150,
+              "color": "#0b2167",
+              "opacity": 0.4,
+              "width": 1
+            },
+            "move": {
+              "enable": true,
+              "speed": 2,
+              "direction": "none",
+              "random": false,
+              "straight": false,
+              "out_mode": "out",
+              "bounce": false,
+              "attract": {
+                "enable": true,
+                "rotateX": 600,
+                "rotateY": 1200
+              }
             }
-          }
-        },
-        "retina_detect": true
+          },
+          "interactivity": {
+            "detect_on": "canvas",
+            "events": {
+              "onhover": {
+                "enable": true,
+                "mode": "grab"
+              },
+              "onclick": {
+                "enable": true,
+                "mode": "push"
+              },
+              "resize": true
+            },
+            "modes": {
+              "grab": {
+                "distance": 140,
+                "line_linked": {
+                  "opacity": 1
+                }
+              },
+              "push": {
+                "particles_nb": 4
+              }
+            }
+          },
+          "retina_detect": true
+        });
       });
 
       window.$docsify = {
         name: '小二产品研究平台',
-        nameLink: '/',
+        nameLink: './',
         logo: './assets/images/logo.png',
         loadSidebar: true,
         loadNavbar: false,
-        subMaxLevel: 0,
+        subMaxLevel: 2,
         auto2top: true,
         coverpage: false,
         homepage: 'README.md',
-        basePath: '/',
+        basePath: './',
+        relativePath: true,
         routerMode: 'hash',
         hideSidebar: false,
         alias: {
-          '/.*/_sidebar.md': '/_sidebar.md'
+          '/.*/_sidebar.md': './_sidebar.md'
         },
+        notFoundPage: true,
         search: {
           maxAge: 86400000,
           paths: "auto",
